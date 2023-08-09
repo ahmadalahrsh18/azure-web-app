@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  home:
+    container_name: octopico-home
+    image: draganfill/octopico-home:latest
+    build:
+      context: ./app
+    ports:
+      - "5001:5001"
+  nginx:
+    container_name: octopico-nginx
+    image: draganfill/octopico-nginx:latest
+    restart: always
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"
